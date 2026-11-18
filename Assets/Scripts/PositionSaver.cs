@@ -14,6 +14,7 @@ namespace DefaultNamespace
 			public float Time;
 		}
 
+        [SerializeField]
         [ReadOnly]
         [Tooltip("Для заполнения поля воспользуйтесь контекстным меню и командой Create File")]
         private TextAsset _json;
@@ -97,8 +98,12 @@ namespace DefaultNamespace
 
 		private void OnDestroy()
 		{
-			//todo logic...
-		}
+            if (_json == null || Records == null)return;
+            var json = JsonUtility.ToJson(this, true);
+            var path = UnityEditor.AssetDatabase.GetAssetPath(_json);
+            File.WriteAllText(path, json);
+            UnityEditor.AssetDatabase.Refresh();
+        }
 #endif
 	}
 }
