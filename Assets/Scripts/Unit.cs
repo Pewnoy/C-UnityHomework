@@ -1,3 +1,4 @@
+
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -18,19 +19,16 @@ public class Unit : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Юнит: PointerEnter");
         Cell?.OnPointerEnter(eventData);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Юнит: PointerClick");
         Cell?.OnPointerClick(eventData);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Юнит: PointerExit");
         Cell?.OnPointerExit(eventData);
     }
 
